@@ -7,7 +7,7 @@ def mostrar_bienvenida():
     print(f"\n¡Bienvenido {nombre_usuario} a nuestro Recetario!\n")
 
 def mostrar_ruta():
-    ruta_recetas = Path("C:/Users/Personal/Recetas")
+    ruta_recetas = ruta_recetas = Path.home() / "Recetas"
     print(f"La ruta de acceso a la carpeta de recetas es:\n{ruta_recetas}\n")
     return ruta_recetas
 
@@ -125,9 +125,10 @@ def eliminar_categoria(ruta):
     shutil.rmtree(ruta_categoria)
     print(f"Categoría '{categoria}' y su contenido han sido eliminados.")
 
+mostrar_bienvenida()
+
 while True:
     limpiar_consola()
-    mostrar_bienvenida()
     ruta_recetas = mostrar_ruta()  # Guardamos la ruta en la variable ruta_recetas
     contar_recetas(ruta_recetas)
     mostrar_menu()
